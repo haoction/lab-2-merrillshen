@@ -11,11 +11,21 @@
 void main(void) 
 {
 	unsigned int count=0;
+    unsigned int max=0;
+    unsigned int cur_val=0;
     LEDarray_init();
-    //buttonpress_init();
     ADC_init();
     while (1) {
-        LEDarray_disp_dec(ADC_getval());
-		__delay_ms(50); // Delay so human eye can see change
+        cur_val = ADC_getval();
+        if (cur_val >= max) {
+            max=cur_val;
+        }  
+        if (count == 15000) {
+            max -= 10; 
+            count = 0;
+        }
+        count++;
+        LEDarray_disp_PPM(cur_val,max);
+		//__delay_ms(100); // Delay so human eye can see change
     }
 }
