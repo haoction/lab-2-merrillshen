@@ -4,6 +4,7 @@
 
 #include <xc.h>
 #include "LEDarray.h"
+#include "ADC.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
@@ -11,11 +12,11 @@ void main(void)
 {
 	unsigned int count=0;
     LEDarray_init();
-    buttonpress_init();
+    //buttonpress_init();
+    ADC_init();
     while (1) {
-        while (PORTFbits.RF2); //empty while loop (wait for button press)
-        if (!PORTFbits.RF2){    count++;} //add count
-        LEDarray_disp_dec(count);
-		__delay_ms(200); // Delay so human eye can see change
+        //unsigned int x = ADC_getval();
+        LEDarray_disp_bin(ADC_getval());
+		__delay_ms(50); // Delay so human eye can see change
     }
 }
