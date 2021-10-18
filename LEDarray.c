@@ -47,15 +47,15 @@ void LEDarray_disp_bin(unsigned int number)
 	//some code to turn on/off the pins connected to the LED array
 	//if statements and bit masks can be used to determine if a particular pin should be on/off
 	//see Readme.md for examples
-    if (number & 0b00000000) { LATGbits.LATG0=1;} else { LATGbits.LATG0=0;} //why does this not turn on the LED? 
-    if (number & 0b00000001) { LATGbits.LATG1=1;} else { LATGbits.LATG1=0;}
-    if (number & 0b00000010) { LATAbits.LATA2=1;} else { LATAbits.LATA2=0;}
-    if (number & 0b00000100) { LATFbits.LATF6=1;} else { LATFbits.LATF6=0;}
-    if (number & 0b00001000) { LATAbits.LATA4=1;} else { LATAbits.LATA4=0;}
-    if (number & 0b00010000) { LATAbits.LATA5=1;} else { LATAbits.LATA5=0;}
-    if (number & 0b00100000) { LATFbits.LATF0=1;} else { LATFbits.LATF0=0;}
-    if (number & 0b01000000) { LATBbits.LATB0=1;} else { LATBbits.LATB0=0;}
-    if (number & 0b10000000) { LATBbits.LATB1=1;} else { LATBbits.LATB1=0;}
+    if (number & 0b00000000) { LATGbits.LATG0=1;}  //0
+    if (number & 0b00000001) { LATGbits.LATG1=1;}  //1
+    if (number & 0b00000010) { LATAbits.LATA2=1;}  //2
+    if (number & 0b00000100) { LATFbits.LATF6=1;}  //4
+    if (number & 0b00001000) { LATAbits.LATA4=1;}  //8
+    if (number & 0b00010000) { LATAbits.LATA5=1;}  //16
+    if (number & 0b00100000) { LATFbits.LATF0=1;}  //32
+    if (number & 0b01000000) { LATBbits.LATB0=1;}  //64
+    if (number & 0b10000000) { LATBbits.LATB1=1;}  //128
 }
 
 void buttonpress_init(void)
@@ -73,10 +73,17 @@ void buttonpress_init(void)
 void LEDarray_disp_dec(unsigned int number)
 {
 	unsigned int disp_val;
-	
+	disp_val = 0;
 	//some code to manipulate the variable number into the correct
 	//format and store in disp_val for display on the LED array
-
+    if (number > 9)  { disp_val += 1;} 
+    if (number > 19) { disp_val += 2;}
+    if (number > 29) { disp_val += 4;} 
+    if (number > 39) { disp_val += 8;}
+    if (number > 49) { disp_val += 16;} 
+    if (number > 59) { disp_val += 32;} 
+    if (number > 69) { disp_val += 64;} 
+    if (number > 79) { disp_val += 128;} 
 	LEDarray_disp_bin(disp_val); 	//display value on LED array
 }
 
