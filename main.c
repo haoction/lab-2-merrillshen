@@ -16,6 +16,6 @@ void main(void)
         while (PORTFbits.RF2); //empty while loop (wait for button press)
         if (!PORTFbits.RF2){    count++;} //add count
         LEDarray_disp_bin(count);
-		__delay_ms(200); // Delay so human eye can see change
+		__delay_ms(500); // Delay so human eye can see change
     }
 }
