@@ -58,6 +58,13 @@ void LEDarray_disp_bin(unsigned int number)
     if (number & 0b10000000) { LATBbits.LATB1=1;} else { LATBbits.LATB1=0;}
 }
 
+void buttonpress_init(void)
+{  
+    // setup pin for input (connected to left button)
+    TRISFbits.TRISF2=1; //set TRIS value for pin (input)
+    ANSELFbits.ANSELF2=0; //turn off analogue input on pin 
+}
+
 /************************************
 / Function LEDarray_disp_dec
 / Used to display a number on the LEDs
