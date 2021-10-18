@@ -76,14 +76,15 @@ void LEDarray_disp_dec(unsigned int number)
 	disp_val = 0;
 	//some code to manipulate the variable number into the correct
 	//format and store in disp_val for display on the LED array
-    if (number > 9)  { disp_val += 1;} 
-    if (number > 19) { disp_val += 2;}
+    if (number > 20)  { disp_val += 1;} 
+    if (number > 25) { disp_val += 2;}
     if (number > 29) { disp_val += 4;} 
     if (number > 39) { disp_val += 8;}
     if (number > 49) { disp_val += 16;} 
     if (number > 59) { disp_val += 32;} 
     if (number > 69) { disp_val += 64;} 
-    if (number > 79) { disp_val += 128;} 
+    if (number > 79) { disp_val += 128;}
+    if (number > 89) { disp_val += 256;}
 	LEDarray_disp_bin(disp_val); 	//display value on LED array
 }
 

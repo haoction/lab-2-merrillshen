@@ -15,8 +15,7 @@ void main(void)
     //buttonpress_init();
     ADC_init();
     while (1) {
-        //unsigned int x = ADC_getval();
-        LEDarray_disp_bin(ADC_getval());
+        LEDarray_disp_dec(ADC_getval());
 		__delay_ms(50); // Delay so human eye can see change
     }
 }
