@@ -11,11 +11,11 @@ void main(void)
 {
 	unsigned int count=0;
     LEDarray_init();
-  
+    int run[] = {0,1,2,4,8,16,32,64,128,64,32,16,8,4,2,1,0};
     while (1) {
-		count++; // increment count
-		if (count>511) {count=0;} //reset a when it gets too big
-		LEDarray_disp_bin(count); //output a on the LED array in binary
+		if (count>14) {count=0;} //reset a when it gets too big
+		LEDarray_disp_bin(run[count]); //output a on the LED array in binary
+        count++; // increment count
 		__delay_ms(50); // Delay so human eye can see change
     }
 }

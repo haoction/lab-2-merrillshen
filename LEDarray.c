@@ -47,7 +47,7 @@ void LEDarray_disp_bin(unsigned int number)
 	//some code to turn on/off the pins connected to the LED array
 	//if statements and bit masks can be used to determine if a particular pin should be on/off
 	//see Readme.md for examples
-    if (number & 0b00000000) { LATGbits.LATG0=1;} else { LATGbits.LATG0=0;}
+    if (number & 0b00000000) { LATGbits.LATG0=1;} else { LATGbits.LATG0=0;} //why does this not turn on the LED? 
     if (number & 0b00000001) { LATGbits.LATG1=1;} else { LATGbits.LATG1=0;}
     if (number & 0b00000010) { LATAbits.LATA2=1;} else { LATAbits.LATA2=0;}
     if (number & 0b00000100) { LATFbits.LATF6=1;} else { LATFbits.LATF6=0;}
