@@ -99,27 +99,27 @@ void LEDarray_disp_PPM(unsigned int cur_val, unsigned int max)
 {
 	unsigned int disp_val;
     disp_val = 0;
-    if (cur_val > 9) { disp_val += 1;} 
-    if (cur_val > 5) { disp_val += 2;}
-    if (cur_val > 9) { disp_val += 4;} 
-    if (cur_val > 19) { disp_val += 8;}
-    if (cur_val > 29) { disp_val += 16;} 
-    if (cur_val > 39) { disp_val += 32;} 
-    if (cur_val > 49) { disp_val += 64;} 
-    if (cur_val > 59) { disp_val += 128;}
-    if (cur_val > 69) { disp_val += 256;}
+    if (cur_val > 29) { disp_val += 1;} 
+    if (cur_val > 39) { disp_val += 2;}
+    if (cur_val > 49) { disp_val += 4;} 
+    if (cur_val > 59) { disp_val += 8;}
+    if (cur_val > 69) { disp_val += 16;} 
+    if (cur_val > 79) { disp_val += 32;} 
+    if (cur_val > 89) { disp_val += 64;} 
+    if (cur_val > 99) { disp_val += 128;}
+    if (cur_val > 109) { disp_val += 256;}
     
 	if (cur_val >= max) { LEDarray_disp_bin(disp_val);} //display value on LED array
     else {
-        if (5 >= max && max > 1) { disp_val += 1;} 
-        if (9 >= max && max > 5) { disp_val += 2;}
-        if (19 >= max && max > 9) { disp_val += 4;} 
-        if (29 >= max && max > 19) { disp_val += 8;}
-        if (39 >= max && max > 29) { disp_val += 16;} 
-        if (49 >= max && max > 39) { disp_val += 32;} 
-        if (59 >= max && max > 49) { disp_val += 64;} 
-        if (69 >= max && max > 59) { disp_val += 128;}
-        if (100 >= max &&max > 69) { disp_val += 256;}
+        if (29 >= max && max > 1) { disp_val += 1;} 
+        if (39 >= max && max > 29) { disp_val += 2;}
+        if (49 >= max && max > 39) { disp_val += 4;} 
+        if (59 >= max && max > 49) { disp_val += 8;}
+        if (69 >= max && max > 59) { disp_val += 16;} 
+        if (79 >= max && max > 69) { disp_val += 32;} 
+        if (89 >= max && max > 79) { disp_val += 64;} 
+        if (99 >= max && max > 89) { disp_val += 128;}
+        if (119 >= max &&max > 99) { disp_val += 256;}
         LEDarray_disp_bin(disp_val);
     }
 	// some code to format the variable cur_val and max, store in disp_val for display on the LED array
