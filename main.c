@@ -17,15 +17,10 @@ void main(void)
     ADC_init();
     while (1) {
         cur_val = ADC_getval();
-        if (cur_val >= max) {
-            max=cur_val;
-        }  
-        if (count == 15000) {
-            max -= 10; 
-            count = 0;
-        }
+        if (cur_val >= max) { max=cur_val;}  
+        max -= 10;
         count++;
         LEDarray_disp_PPM(cur_val,max);
-		//__delay_ms(100); // Delay so human eye can see change
+		__delay_ms(100); // Delay 
     }
 }
